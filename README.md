@@ -250,6 +250,6 @@ const contato: ContatoInfo = {
   
 ### 🚀 Sempre em evolução, sempre aprendendo!
 
-![Coding](https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif)
+![Profile views](https://komarev.com/ghpvc/?username=glauccoeng-prog&style=flat-square&color=00d9ff)
 
 </div>
