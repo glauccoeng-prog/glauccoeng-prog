@@ -236,7 +236,7 @@ const contato: ContatoInfo = {
 
 <div align="center">
 
-### 💡 "O único modo de fazer um ótimo trabalho é se comprometer de verdade com o que você faz"
+### 💡 "O único modo de fazer um ótimo trabalho é se comprometer de verdade com o que você faz."
 
 ![Profile views](https://komarev.com/ghpvc/?username=glauccoeng-prog&style=flat-square&color=00d9ff)
 
