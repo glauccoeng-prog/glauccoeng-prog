@@ -238,7 +238,7 @@ const contato: ContatoInfo = {
 
 ### 💡 "O único modo de fazer um ótimo trabalho é amar o que você faz"
 
-![Visitor Count](https://profile-counter.glitch.me/glauccoeng-prog/count.svg)
+![Profile views](https://komarev.com/ghpvc/?username=glauccoeng-prog&style=flat-square&color=00d9ff)
 
 ⭐️ From [glauccoeng-prog](https://github.com/glauccoeng-prog)
 
@@ -250,6 +250,6 @@ const contato: ContatoInfo = {
   
 ### 🚀 Sempre em evolução, sempre aprendendo!
 
-![Profile views](https://komarev.com/ghpvc/?username=glauccoeng-prog&style=flat-square&color=00d9ff)
+![Coding](https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif)
 
 </div>
