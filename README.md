@@ -227,7 +227,7 @@ const contato: ContatoInfo = {
 
 <div align="center">
 
-![Snake animation](https://github.com/glauccoeng-prog/glauccoeng-prog/blob/output/github-contribution-grid-snake.svg)
+![snake animation](https://github.com/glauccoeng-prog/glauccoeng-prog/blob/output/github-contribution-grid-snake2.svg)
 
 </div>
 
