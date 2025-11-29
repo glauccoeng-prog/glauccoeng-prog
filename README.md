@@ -212,12 +212,13 @@ const contato: ContatoInfo = {
 
 ---
 
-## 🎮 Projetos em Destaque
+## 🎮 Projeto em Destaque
 
 <div align="center">
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=glauccoeng-prog&repo=agendamento-para-saloes-de-beleza&theme=tokyonight)](https://github.com/glauccoeng-prog/agendamento-para-saloes-de-beleza)
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=glauccoeng-prog&repo=sistema_de_reembolso&theme=tokyonight)](https://github.com/glauccoeng-prog/sistema_de_reembolso)
+[![](https://github-readme-stats.vercel.app/api/pin/?username=glauccoeng-prog&repo=agendamento-para-saloes-de-beleza&theme=tokyonight)](https://github.com/glauccoeng-prog/agendamento-para-saloes-de-beleza)
+
+[![](https://github-readme-stats.vercel.app/api/pin/?username=glauccoeng-prog&repo=sistema_de_reembolso&show_owner=true&theme=tokyonight)](https://github.com/glauccoeng-prog/sistema_de_reembolso)
 
 </div>
 
