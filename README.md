@@ -217,7 +217,7 @@ const contato: ContatoInfo = {
 <div align="center">
 
 [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=glauccoeng-prog&repo=agendamento-para-saloes-de-beleza&theme=tokyonight)](https://github.com/glauccoeng-prog/agendamento-para-saloes-de-beleza)
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=glauccoeng-prog&repo=PROJETO2&theme=tokyonight)](https://github.com/glauccoeng-prog/PROJETO2)
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=glauccoeng-prog&repo=sistema_de_reembolso&theme=tokyonight)](https://github.com/glauccoeng-prog/sistema_de_reembolso)
 
 </div>
 
