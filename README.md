@@ -14,7 +14,7 @@
 const desenvolvedor = {
   nome: "Glaucco",
   localização: "Brasil 🇧🇷",
-  código: ["JavaScript", "TypeScript", "Python", "HTML", "CSS"],
+  código: ["JavaScript", "TypeScript", "Python", "Java", "HTML", "CSS"],
   ferramentas: ["React", "Django", "PostgreSQL", "Jest", "Cypress"],
   paixões: ["💻 Programação", "💪 Musculação", "📚 Aprendizado Contínuo"],
   foco: "Criar aplicações web modernas, escaláveis e performáticas",
@@ -49,10 +49,12 @@ const desenvolvedor = {
 ![Django](https://img.shields.io/badge/-Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Java.js](https://img.shields.io/badge/-Java-007396?style=for-the-badge&logo=java&logoColor=white)
 
 ### Testes & Qualidade
 ![Jest](https://img.shields.io/badge/-Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
 ![Cypress](https://img.shields.io/badge/-Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-%236E9F18?style=for-the-badge&logo=Vitest&logoColor=%23fcd703)
 ![Testing Library](https://img.shields.io/badge/-Testing%20Library-E33332?style=for-the-badge&logo=testing-library&logoColor=white)
 
 ### DevOps & Ferramentas
@@ -98,7 +100,7 @@ const desenvolvedor = {
 <td width="50%">
 
 ### 🧪 Qualidade
-- ✅ Testes automatizados (Jest/Cypress)
+- ✅ Testes automatizados (Jest/Cypress/Vitest)
 - 📝 Documentação técnica clara
 - 🔍 Code review e boas práticas
 - 🤝 Colaboração em times ágeis
@@ -113,7 +115,8 @@ const desenvolvedor = {
 
 <div align="center">
 
-![Trophy](https://github-profile-trophy.vercel.app/?username=glauccoeng-prog&theme=tokyonight&no-frame=true&row=1&column=6)
+![Trophy](https://github-profile-trophy.vercel.app/?username=glauccoeng-prog&theme=discord)
+         
 
 </div>
 
