@@ -14,7 +14,7 @@
 const desenvolvedor = {
   nome: "Glaucco",
   localização: "Brasil 🇧🇷",
-  código: ["JavaScript", "TypeScript", "Python", "Java", "HTML", "CSS"],
+  código: ["JavaScript", "TypeScript", "Go", "Python", "Java", "HTML", "CSS"],
   ferramentas: ["React", "Django", "PostgreSQL", "Jest", "Cypress"],
   paixões: ["💻 Programação", "💪 Musculação", "📚 Aprendizado Contínuo"],
   foco: "Criar aplicações web modernas, escaláveis e performáticas",
@@ -52,6 +52,8 @@ const desenvolvedor = {
 ![Django](https://img.shields.io/badge/-Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Go](https://img.shields.io/badge/-Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
+![Fiber](https://img.shields.io/badge/-Fiber-00AB66?style=for-the-badge&logo=go&logoColor=white)
 ![Java.js](https://img.shields.io/badge/-Java-007396?style=for-the-badge&logo=java&logoColor=white)
 
 ### Testes & Qualidade
@@ -163,11 +165,6 @@ aprendizado_continuo = {
         "Clean Architecture",
         "Design Patterns Avançados",
         "Performance Optimization"
-    ],
-    "próximos_passos": [
-        "GraphQL",
-        "Kubernetes",
-        "Machine Learning Basics"
     ],
     "leitura": "Clean Code & Design Patterns"
 }
