@@ -62,6 +62,7 @@ const desenvolvedor = {
 ![Cypress](https://img.shields.io/badge/-Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white)
 ![Vitest](https://img.shields.io/badge/Vitest-%236E9F18?style=for-the-badge&logo=Vitest&logoColor=%23fcd703)
 ![Testing Library](https://img.shields.io/badge/-Testing%20Library-E33332?style=for-the-badge&logo=testing-library&logoColor=white)
+![Playwright](https://img.shields.io/badge/-Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
 
 ### DevOps & Ferramentas
 ![Git](https://img.shields.io/badge/-Git-F05032?style=for-the-badge&logo=git&logoColor=white)
