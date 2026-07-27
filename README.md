@@ -1,261 +1,124 @@
-<div align="center">
-  
-# 👋 Olá, sou Glaucco!
+# Glaucco Siqueira
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=00D9FF&center=true&vCenter=true&random=false&width=600&lines=Engenheiro+de+Software;Apaixonado+por+Tecnologia;Entusiasta+de+Muscula%C3%A7%C3%A3o;Sempre+Aprendendo+%F0%9F%9A%80" alt="Typing SVG" />
+**Engenheiro de Software Sênior · Full-stack · Brasília/DF 🇧🇷 · remoto para os EUA 🇺🇸**
 
-</div>
+Atuo em um **laboratório norte-americano de pesquisa de IA (Y Combinator)**, construindo benchmarks para avaliação de agentes de IA e aplicações full-stack de produção — trabalho 100% em inglês. Construo produtos de ponta a ponta: APIs com **Go, Node.js e Django**, frontends com **React, Next.js, Angular e Vue**, com testes automatizados como padrão de projeto, não como etapa opcional.
 
----
+<p>
+  <a href="mailto:glauccoeng@gmail.com"><img src="https://img.shields.io/badge/Email-glauccoeng%40gmail.com-1A1B27?style=flat-square&logo=gmail&logoColor=70A5FD" alt="E-mail: glauccoeng@gmail.com"></a>
+  <a href="https://linkedin.com/in/glaucco-siqueira"><img src="https://img.shields.io/badge/LinkedIn-glaucco--siqueira-0A66C2?style=flat-square" alt="LinkedIn: glaucco-siqueira"></a>
+</p>
 
-## 🚀 Sobre Mim
+## Sobre
 
-```javascript
-const desenvolvedor = {
-  nome: "Glaucco",
-  localização: "Brasil 🇧🇷",
-  código: ["JavaScript", "TypeScript", "Go", "Python", "Java", "HTML", "CSS"],
-  ferramentas: ["React", "ESLint", "Prettier", "Django", "PostgreSQL", "Jest", "Cypress"],
-  paixões: ["💻 Programação", "💪 Musculação", "📚 Aprendizado Contínuo"],
-  foco: "Criar aplicações web modernas, escaláveis e performáticas",
-  
-  desafioAtual: "Aprimorar arquitetura de microsserviços",
-  funFact: "Debugging é como treinar: quanto mais você pratica, mais forte fica! 💪"
-};
-```
+- Hoje: **treinamento e avaliação de agentes de IA** — projeto benchmarks estilo SWE-bench (ambiente Docker reproduzível, suíte de testes e solução de referência) e caço e corrijo bugs em bases **C/C++, Go e Python** com dezenas de milhares de linhas.
+- Base forte em **JavaScript/TypeScript**, transitando com naturalidade entre **Go, Python, Java e C/C++** — escolho a ferramenta pelo problema, não pelo hype.
+- Qualidade como fluxo padrão: **testes automatizados (Jest, Vitest, Cypress, Playwright), CI/CD e code review** em todo projeto.
+- **PostgreSQL, Docker e Linux** no dia a dia; prefiro arquiteturas que envelhecem bem — código legível, bem tipado e coberto por testes.
+- Fora do teclado, musculação: a mesma disciplina de progressão constante do treino, aplicada à engenharia.
 
-<div align="center">
+> 🔒 Boa parte do meu trabalho recente (benchmarks de IA e sistemas em C/C++ e Go) vive em **repositórios privados** — o gráfico de contribuições no fim da página conta essa atividade.
 
-### 💡 "Código limpo não é só escrito seguindo regras. É escrito com cuidado."
+## Experiência
 
-</div>
+- **AfterQuery** — laboratório de pesquisa de IA (EUA, Y Combinator) · *Engenheiro de Software Sênior* · abr 2026 – atual
+  Benchmarks para avaliação de agentes de IA, aplicações full-stack de produção (Go, TypeScript, Angular, React, PostgreSQL) e correção de bugs em C/C++ — remoto, 100% em inglês.
+- **Mate Academy** — *Desenvolvedor Full Stack* · ago 2025 – abr 2026
+  Autenticação OAuth multi-provider (Google, GitHub, Apple), chat em tempo real com Socket.IO e e-commerce SPA com Redux Toolkit.
+- **CI&T** — *Desenvolvedor Front-end* · jan – jul 2025
+  Interfaces SSR com Next.js, React e TypeScript; mais de 15 componentes reutilizáveis que aceleraram o desenvolvimento de novas telas em ~35%.
 
----
+## Projetos em destaque
 
-## 🛠️ Tecnologias & Ferramentas
+### [Sistema de Reembolso](https://github.com/glauccoeng-prog/sistema_de_reembolso) · [🔗 demo ao vivo](https://sistema-de-reembolso-two.vercel.app/)
 
-<div align="center">
+Aplicação web completa para gestão de reembolsos corporativos: CRUD, busca com debounce, upload de comprovantes com drag-and-drop e PWA instalável. **52 testes automatizados**, CI/CD com GitHub Actions e deploy na Vercel.
 
-### Frontend
-![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![Next.js](https://img.shields.io/badge/-Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
-![Angular](https://img.shields.io/badge/-Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
-![Vue.js](https://img.shields.io/badge/-Vue.js-42B883?style=for-the-badge&logo=vue.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Sass](https://img.shields.io/badge/-Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
-![Tailwind](https://img.shields.io/badge/-Tailwind-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+`TypeScript` `React` `Vite` `TanStack Query` `Vitest` `Testing Library` `GitHub Actions`
 
-### Backend
-![Python](https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Django](https://img.shields.io/badge/-Django-092E20?style=for-the-badge&logo=django&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![Node.js](https://img.shields.io/badge/-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
-![Go](https://img.shields.io/badge/-Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
-![Fiber](https://img.shields.io/badge/-Fiber-00AB66?style=for-the-badge&logo=go&logoColor=white)
-![Java.js](https://img.shields.io/badge/-Java-007396?style=for-the-badge&logo=java&logoColor=white)
+### [CodeLeap Network](https://github.com/glauccoeng-prog/CodeLeap)
 
-### Testes & Qualidade
-![Jest](https://img.shields.io/badge/-Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
-![Cypress](https://img.shields.io/badge/-Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white)
-![Vitest](https://img.shields.io/badge/Vitest-%236E9F18?style=for-the-badge&logo=Vitest&logoColor=%23fcd703)
-![Testing Library](https://img.shields.io/badge/-Testing%20Library-E33332?style=for-the-badge&logo=testing-library&logoColor=white)
-![Playwright](https://img.shields.io/badge/-Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
+Rede social estilo Twitter/Instagram com **interações em tempo real** via Cloud Firestore: autenticação com Firebase, likes, reposts, comentários com @menções, notificações e scroll infinito.
 
-### DevOps & Ferramentas
-![Git](https://img.shields.io/badge/-Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![Docker](https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![VS Code](https://img.shields.io/badge/-VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![Linux](https://img.shields.io/badge/-Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+`TypeScript` `Next.js` `React` `Firebase` `Tailwind CSS` `TanStack Query`
 
-</div>
+### [Catálogo de Produtos — React](https://github.com/glauccoeng-prog/react_phone-catalog) · [🔗 demo ao vivo](https://glauccoeng-prog.github.io/react_phone-catalog/)
 
----
+Catálogo de produtos estilo e-commerce com **carrinho de compras, favoritos e slider de imagens**, navegação SPA com React Router e estilização com SCSS Modules — **publicado no GitHub Pages**.
 
-## 📊 Estatísticas GitHub
+`React` `TypeScript` `React Router` `SCSS` `Vite`
 
-<div align="center">
-  
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=glauccoeng-prog&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=glauccoeng-prog&layout=compact&langs_count=8&theme=tokyonight"/>
+### [Gestão de Usuários — Desafio Attus](https://github.com/glauccoeng-prog/desafio-attus-angular)
 
-</div>
+CRUD com Angular moderno: Standalone Components, estado reativo com Signals e validação de CPF e telefone com máscaras automáticas. **91 testes unitários**, TypeScript em modo estrito e ESLint + Prettier com Husky pre-commit.
 
-<div align="center">
-  
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=glauccoeng-prog&theme=tokyonight)](https://git.io/streak-stats)
+`Angular` `TypeScript` `RxJS` `Signals` `Vitest`
 
-</div>
+### [HTML Analyzer — Desafio Axur](https://github.com/glauccoeng-prog/desafio_axur)
 
----
+Analisador de HTML em **Java 17 puro, sem bibliotecas externas**: parsing próprio com estrutura de pilha para encontrar o texto no nível mais profundo do documento, com detecção de HTML malformado (bônus do desafio) e testes unitários.
 
-## 🎯 O Que Faço
+`Java` `JDK 17`
+
+## Stack
 
 <table>
-<tr>
-<td width="50%">
-
-### 💻 Desenvolvimento
-- 🚀 Aplicações web modernas e escaláveis
-- ⚡ Foco em performance e UX
-- 🔗 Integração de APIs RESTful
-- 🎨 Interfaces responsivas e acessíveis
-
-</td>
-<td width="50%">
-
-### 🧪 Qualidade
-- ✅ Testes automatizados (Jest/Cypress/Vitest)
-- 📝 Documentação técnica clara
-- 🔍 Code review e boas práticas
-- 🤝 Colaboração em times ágeis
-
-</td>
-</tr>
+  <tr>
+    <td><strong>Linguagens</strong></td>
+    <td><img src="https://skillicons.dev/icons?i=js,ts,go,py,java,c,cpp&theme=dark" height="40" alt="JavaScript, TypeScript, Go, Python, Java, C e C++" /></td>
+  </tr>
+  <tr>
+    <td><strong>Frontend</strong></td>
+    <td><img src="https://skillicons.dev/icons?i=react,nextjs,angular,vue&theme=dark" height="40" alt="React, Next.js, Angular e Vue" /></td>
+  </tr>
+  <tr>
+    <td><strong>Backend &amp; Dados</strong></td>
+    <td><img src="https://skillicons.dev/icons?i=nodejs,django,postgres&theme=dark" height="40" alt="Node.js, Django e PostgreSQL" /></td>
+  </tr>
+  <tr>
+    <td><strong>Testes</strong></td>
+    <td><img src="https://skillicons.dev/icons?i=jest,cypress,vitest,playwright&theme=dark" height="40" alt="Jest, Cypress, Vitest e Playwright" /></td>
+  </tr>
+  <tr>
+    <td><strong>Ferramentas</strong></td>
+    <td><img src="https://skillicons.dev/icons?i=git,docker,linux&theme=dark" height="40" alt="Git, Docker e Linux" /></td>
+  </tr>
 </table>
 
----
+Também no dia a dia:
+<img src="https://img.shields.io/badge/Go%20Fiber-1A1B27?style=flat-square&logo=go&logoColor=70A5FD" alt="Go Fiber" />
+<img src="https://img.shields.io/badge/Testing%20Library-1A1B27?style=flat-square&logo=testinglibrary&logoColor=BF91F3" alt="Testing Library" />
 
-## 🏆 Conquistas & Certificações
+## Atividade
 
-<div align="center">
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg">
+    <img src="assets/stats-light.svg" alt="Visão geral do GitHub: contribuições no último ano, repositórios próprios, estrelas e seguidores" />
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/langs-dark.svg">
+    <img src="assets/langs-light.svg" alt="Linguagens mais usadas nos repositórios próprios" />
+  </picture>
+</p>
 
-![Trophy](https://github-profile-trophy.vercel.app/?username=glauccoeng-prog&theme=discord)
-         
+<sub>📊 Cards gerados diariamente por [GitHub Actions deste repositório](.github/workflows/stats.yml) — sem depender de serviços externos.</sub>
 
-</div>
+## Vamos conversar?
 
----
+Aberto a conversas sobre oportunidades e projetos — o caminho mais rápido é o LinkedIn.
 
-## 💪 Além do Código
-
-<div align="center">
-
-| 💻 Programação | 💪 Musculação | 📚 Aprendizado |
-|:---:|:---:|:---:|
-| Construindo soluções | Construindo músculos | Construindo conhecimento |
-| Debugging de código | Superando limites | Explorando tecnologias |
-| Clean Code | Disciplina | Crescimento contínuo |
-
-</div>
-
-> **"Assim como na musculação, no código você precisa de consistência, disciplina e sempre buscar evoluir!"**
-
----
-
-## 📈 Atividade de Desenvolvimento
-
-<div align="center">
-
-<!--START_SECTION:waka-->
-<!--END_SECTION:waka-->
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=glauccoeng-prog&theme=tokyo-night&hide_border=true" width="100%"/>
-
-</div>
-
----
-
-## 🎓 Aprendendo Atualmente
-
-```python
-aprendizado_continuo = {
-    "foco_atual": [
-        "Arquitetura de Microsserviços",
-        "Clean Architecture",
-        "Design Patterns Avançados",
-        "Performance Optimization"
-    ],
-    "leitura": "Clean Code & Design Patterns"
-}
-```
-
----
-
-## 🤝 Vamos Conectar?
-
-<div align="center">
-
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/glaucco-siqueira)
-[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/glauccoeng-prog)
-[![Email](https://img.shields.io/badge/-Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:glauccoeng@gmail.com)
-[![Portfolio](https://img.shields.io/badge/-Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://seu-portfolio.com)
-
-</div>
-
----
-
-## 💬 Frase do Dia
-
-<div align="center">
-
-![Quote](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight)
-
-</div>
-
----
-
-## 📫 Como Me Encontrar
-
-```typescript
-interface ContatoInfo {
-  email: string;
-  linkedin: string;
-  github: string;
-  disponibilidade: string;
-}
-
-const contato: ContatoInfo = {
-  email: "glauccoeng@gmail.com",
-  linkedin: "linkedin.com/in/glaucco-siqueira",
-  github: "github.com/glauccoeng-prog",
-  disponibilidade: "Aberto para colaborações e novos desafios! 🚀"
-};
-```
-
----
-
-## 🎮 Projeto em Destaque
-
-<div align="center">
-
-[![](https://github-readme-stats.vercel.app/api/pin/?username=glauccoeng-prog&repo=agendamento-para-saloes-de-beleza&theme=tokyonight)](https://github.com/glauccoeng-prog/agendamento-para-saloes-de-beleza)
-
-[![](https://github-readme-stats.vercel.app/api/pin/?username=glauccoeng-prog&repo=sistema_de_reembolso&show_owner=true&theme=tokyonight)](https://github.com/glauccoeng-prog/sistema_de_reembolso)
-
-</div>
-
----
-
-## 🐍 Contribuições
-
-<div align="center">
-
-![Snake animation](https://github.com/glauccoeng-prog/glauccoeng-prog/blob/output/github-snake.svg)
-
-
-</div>
+<p align="center">
+  <a href="https://linkedin.com/in/glaucco-siqueira"><img src="https://img.shields.io/badge/Falar%20no%20LinkedIn-0A66C2?style=for-the-badge" alt="Falar no LinkedIn"></a>
+  <a href="mailto:glauccoeng@gmail.com"><img src="https://img.shields.io/badge/Enviar%20e--mail-1A1B27?style=for-the-badge&logo=gmail&logoColor=70A5FD" alt="Enviar e-mail"></a>
+</p>
 
 ---
 
 <div align="center">
-
-### 💡 "O único modo de fazer um ótimo trabalho é se comprometer de verdade com o que você faz."
-
-![Profile views](https://komarev.com/ghpvc/?username=glauccoeng-prog&style=flat-square&color=00d9ff)
-
-⭐️ From [glauccoeng-prog](https://github.com/glauccoeng-prog)
-
-</div>
-
----
-
-<div align="center">
-  
-### 🚀 Sempre em evolução, sempre aprendendo!
-
-![Coding](https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif)
-
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/glauccoeng-prog/glauccoeng-prog/output/github-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/glauccoeng-prog/glauccoeng-prog/output/github-snake.svg">
+  <img alt="Animação da cobrinha percorrendo o gráfico de contribuições" src="https://raw.githubusercontent.com/glauccoeng-prog/glauccoeng-prog/output/github-snake.svg">
+</picture>
 </div>

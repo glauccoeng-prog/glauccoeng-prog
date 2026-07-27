@@ -1,0 +1,53 @@
+name: Generate Profile Stats
+
+on:
+  # roda todo dia às 03:00 (UTC), 3h depois da snake (00:00), com o grafo do dia já fechado
+  schedule:
+    - cron: "0 3 * * *"
+  # permite rodar manualmente
+  workflow_dispatch:
+  # regenera quando o gerador ou este workflow mudarem
+  push:
+    branches: [main]
+    paths:
+      - scripts/generate_stats.py
+      - .github/workflows/stats.yml
+
+permissions:
+  contents: write
+
+# evita dois runs simultâneos disputando o git push
+concurrency:
+  group: profile-stats
+  cancel-in-progress: false
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate stats SVGs
+        run: python scripts/generate_stats.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit updated stats
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets
+          if git diff --cached --quiet; then
+            echo "Cards já estão atualizados — nada a commitar"
+          else
+            git commit -m "chore: atualiza cards de estatísticas"
+            git pull --rebase origin main
+            git push
+          fi

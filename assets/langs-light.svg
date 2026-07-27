@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="226" viewBox="0 0 420 226" role="img" aria-label="Linguagens mais usadas">
+  <rect x="0.5" y="0.5" width="419" height="225" rx="10" fill="#FFFFFF" stroke="#D0D7DE"/>
+  <text x="24" y="38" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="18" font-weight="700" fill="#4A6FD0">Linguagens mais usadas</text>
+  <rect x="24" y="59" width="10" height="10" rx="2" fill="#3178C6"/>
+  <text x="42" y="69" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" fill="#24292F">TypeScript</text>
+  <rect x="185" y="60" width="150" height="8" rx="4" fill="#EAEEF2"/>
+  <rect x="185" y="60" width="117" height="8" rx="4" fill="#3178C6"/>
+  <text x="396" y="69" text-anchor="end" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="700" fill="#24292F">78.0%</text>
+  <rect x="24" y="89" width="10" height="10" rx="2" fill="#C6538C"/>
+  <text x="42" y="99" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" fill="#24292F">SCSS</text>
+  <rect x="185" y="90" width="150" height="8" rx="4" fill="#EAEEF2"/>
+  <rect x="185" y="90" width="20" height="8" rx="4" fill="#C6538C"/>
+  <text x="396" y="99" text-anchor="end" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="700" fill="#24292F">13.4%</text>
+  <rect x="24" y="119" width="10" height="10" rx="2" fill="#B07219"/>
+  <text x="42" y="129" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" fill="#24292F">Java</text>
+  <rect x="185" y="120" width="150" height="8" rx="4" fill="#EAEEF2"/>
+  <rect x="185" y="120" width="5" height="8" rx="4" fill="#B07219"/>
+  <text x="396" y="129" text-anchor="end" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="700" fill="#24292F">3.5%</text>
+  <rect x="24" y="149" width="10" height="10" rx="2" fill="#563D7C"/>
+  <text x="42" y="159" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" fill="#24292F">CSS</text>
+  <rect x="185" y="150" width="150" height="8" rx="4" fill="#EAEEF2"/>
+  <rect x="185" y="150" width="5" height="8" rx="4" fill="#563D7C"/>
+  <text x="396" y="159" text-anchor="end" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="700" fill="#24292F">3.1%</text>
+  <rect x="24" y="179" width="10" height="10" rx="2" fill="#F1E05A"/>
+  <text x="42" y="189" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" fill="#24292F">JavaScript</text>
+  <rect x="185" y="180" width="150" height="8" rx="4" fill="#EAEEF2"/>
+  <rect x="185" y="180" width="4" height="8" rx="4" fill="#F1E05A"/>
+  <text x="396" y="189" text-anchor="end" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="700" fill="#24292F">2.0%</text>
+</svg>
