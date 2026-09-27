@@ -1,14 +1,19 @@
-"""Gera os cards de estatísticas do perfil como SVGs estáticos em assets/.
+"""Generates the profile activity card (assets/activity-{light,dark}.svg).
 
-Roda diariamente via GitHub Actions (.github/workflows/stats.yml) usando o
-GITHUB_TOKEN do próprio repositório — sem depender de serviços externos que
-sofrem rate limit (github-readme-stats, summary-cards etc.).
+Runs daily via GitHub Actions (.github/workflows/stats.yml) with the repository's own
+GITHUB_TOKEN — no external stats service, no personal token. The contribution calendar
+already includes private contributions as anonymous counts (the profile setting
+"Include private contributions" is on), so no private repository is ever read or named.
 
-Uso local:  GITHUB_TOKEN=<token> python scripts/generate_stats.py
-Sem token o script ainda funciona (API anônima), apenas omite as métricas
-de contribuição que exigem GraphQL.
+Safety rules:
+- everything is built in memory; files are written only if every API call succeeded,
+  otherwise the script exits non-zero and the previous SVGs stay online;
+- the card only shows numbers (never repository names).
+
+Local use:  GITHUB_TOKEN=<token> python scripts/generate_stats.py
 """
 
+import datetime as dt
 import json
 import os
 import sys
@@ -17,190 +22,114 @@ from pathlib import Path
 
 USER = "glauccoeng-prog"
 OUT_DIR = Path(__file__).resolve().parent.parent / "assets"
-API = "https://api.github.com"
+API = "https://api.github.com/graphql"
 
-# Cores oficiais de linguagem do GitHub (fallback: paleta do perfil)
-LANG_COLORS = {
-    "TypeScript": "#3178C6",
-    "JavaScript": "#F1E05A",
-    "Java": "#B07219",
-    "Python": "#3572A5",
-    "Go": "#00ADD8",
-    "HTML": "#E34C26",
-    "CSS": "#563D7C",
-    "SCSS": "#C6538C",
-    "Shell": "#89E051",
-    "Dockerfile": "#384D54",
-}
-FALLBACK_COLORS = ["#70A5FD", "#BF91F3", "#414868", "#C0CAF5"]
-
+FONT = "-apple-system, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif"
 THEMES = {
-    "dark": {
-        "bg": "#1A1B27",
-        "border": "#414868",
-        "title": "#70A5FD",
-        "label": "#C0CAF5",
-        "value": "#C0CAF5",
-        "track": "#414868",
-        "bullet": "#BF91F3",
-    },
-    "light": {
-        "bg": "#FFFFFF",
-        "border": "#D0D7DE",
-        "title": "#4A6FD0",
-        "label": "#24292F",
-        "value": "#24292F",
-        "track": "#EAEEF2",
-        "bullet": "#4A6FD0",
-    },
+    "light": {"bg": "#ffffff", "border": "#d0d7de", "fg": "#1f2328", "dim": "#59636e",
+              "acc": "#0969da", "bar": "#2da44e", "bar_dim": "#aceebb", "grid": "#eaeef2"},
+    "dark": {"bg": "#0d1117", "border": "#30363d", "fg": "#e6edf3", "dim": "#8b949e",
+             "acc": "#58a6ff", "bar": "#3fb950", "bar_dim": "#196c2e", "grid": "#21262d"},
 }
+MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-FONT = "'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif"
-
-
-def clip(text, limit=18):
-    """Trunca nomes longos para não estourar a largura fixa (420px) do card."""
-    return text if len(text) <= limit else text[: limit - 1] + "…"
-
-
-def request(url, token=None, data=None):
-    headers = {"User-Agent": "profile-stats-generator", "Accept": "application/vnd.github+json"}
-    if token:
-        headers["Authorization"] = f"Bearer {token}"
-    body = json.dumps(data).encode() if data is not None else None
-    req = urllib.request.Request(url, data=body, headers=headers)
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.loads(resp.read().decode())
-
-
-def fetch_data(token):
-    repos = []
-    page = 1
-    while True:
-        batch = request(f"{API}/users/{USER}/repos?per_page=100&page={page}", token)
-        repos.extend(batch)
-        if len(batch) < 100:
-            break
-        page += 1
-
-    own = [r for r in repos if not r["fork"]]
-    stars = sum(r["stargazers_count"] for r in repos)
-
-    langs = {}
-    for repo in own:
-        for lang, size in request(repo["languages_url"], token).items():
-            langs[lang] = langs.get(lang, 0) + size
-
-    user = request(f"{API}/users/{USER}", token)
-
-    contributions = None
-    if token:
-        query = """
-        query($login: String!) {
-          user(login: $login) {
-            contributionsCollection {
-              contributionCalendar { totalContributions }
-            }
-          }
-        }"""
-        result = request(f"{API}/graphql", token, {"query": query, "variables": {"login": USER}})
-        contributions = result["data"]["user"]["contributionsCollection"]["contributionCalendar"]["totalContributions"]
-
-    return {
-        "stars": stars,
-        "own_repos": len(own),
-        "followers": user["followers"],
-        "contributions": contributions,
-        "langs": sorted(langs.items(), key=lambda kv: kv[1], reverse=True),
+QUERY = """
+query($login: String!) {
+  user(login: $login) {
+    contributionsCollection {
+      restrictedContributionsCount
+      contributionCalendar {
+        totalContributions
+        weeks { contributionDays { date contributionCount } }
+      }
     }
+  }
+}"""
 
 
-def svg_header(theme, title, height):
+def fetch(token):
+    body = json.dumps({"query": QUERY, "variables": {"login": USER}}).encode()
+    req = urllib.request.Request(API, data=body, headers={
+        "Authorization": f"Bearer {token}", "User-Agent": "profile-activity-card",
+        "Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        data = json.loads(resp.read().decode())
+    if data.get("errors") or not data.get("data", {}).get("user"):
+        raise RuntimeError(f"GraphQL error: {data.get('errors')}")
+    col = data["data"]["user"]["contributionsCollection"]
+    cal = col["contributionCalendar"]
+    days = [d for w in cal["weeks"] for d in w["contributionDays"]]
+    if not days:
+        raise RuntimeError("empty contribution calendar")
+    return cal["totalContributions"], col["restrictedContributionsCount"], days
+
+
+def monthly(days):
+    """Sum per calendar month, oldest first (the first and last months may be partial)."""
+    buckets = {}
+    for d in days:
+        key = d["date"][:7]
+        buckets[key] = buckets.get(key, 0) + d["contributionCount"]
+    keys = sorted(buckets)[-12:]
+    return [(k, buckets[k]) for k in keys]
+
+
+def card(theme, total, private, months, today):
     t = THEMES[theme]
-    return (
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="420" height="{height}" '
-        f'viewBox="0 0 420 {height}" role="img" aria-label="{title}">\n'
-        f'  <rect x="0.5" y="0.5" width="419" height="{height - 1}" rx="10" '
-        f'fill="{t["bg"]}" stroke="{t["border"]}"/>\n'
-        f'  <text x="24" y="38" font-family="{FONT}" font-size="18" font-weight="700" '
-        f'fill="{t["title"]}">{title}</text>\n'
-    )
-
-
-def stats_rows(data):
-    rows = [("Repositórios próprios", data["own_repos"]),
-            ("Estrelas recebidas", data["stars"]),
-            ("Seguidores", data["followers"])]
-    if data["contributions"] is not None:
-        rows.insert(0, ("Contribuições no último ano", data["contributions"]))
-    if data["langs"]:
-        rows.append(("Linguagem principal", clip(data["langs"][0][0])))
-    return rows[:5]
-
-
-def build_stats_card(theme, data, height):
-    t = THEMES[theme]
-    rows = stats_rows(data)
-
-    parts = [svg_header(theme, "Visão geral do GitHub", height)]
-    y = 72
-    for label, value in rows:
-        parts.append(f'  <circle cx="30" cy="{y - 5}" r="4" fill="{t["bullet"]}"/>\n')
-        parts.append(
-            f'  <text x="46" y="{y}" font-family="{FONT}" font-size="14" '
-            f'fill="{t["label"]}">{label}</text>\n'
-        )
-        parts.append(
-            f'  <text x="396" y="{y}" text-anchor="end" font-family="{FONT}" font-size="14" '
-            f'font-weight="700" fill="{t["value"]}">{value}</text>\n'
-        )
-        y += 30
-    parts.append("</svg>\n")
-    return "".join(parts)
-
-
-def build_langs_card(theme, data, height):
-    t = THEMES[theme]
-    top = data["langs"][:5]
-    total = sum(size for _, size in top) or 1
-
-    parts = [svg_header(theme, "Linguagens mais usadas", height)]
-    y = 72
-    for i, (lang, size) in enumerate(top):
-        pct = 100.0 * size / total
-        color = LANG_COLORS.get(lang, FALLBACK_COLORS[i % len(FALLBACK_COLORS)])
-        bar_w = max(4, round(150 * pct / 100))
-        parts.append(f'  <rect x="24" y="{y - 13}" width="10" height="10" rx="2" fill="{color}"/>\n')
-        parts.append(
-            f'  <text x="42" y="{y - 3}" font-family="{FONT}" font-size="14" '
-            f'fill="{t["label"]}">{clip(lang)}</text>\n'
-        )
-        parts.append(f'  <rect x="185" y="{y - 12}" width="150" height="8" rx="4" fill="{t["track"]}"/>\n')
-        parts.append(f'  <rect x="185" y="{y - 12}" width="{bar_w}" height="8" rx="4" fill="{color}"/>\n')
-        parts.append(
-            f'  <text x="396" y="{y - 3}" text-anchor="end" font-family="{FONT}" font-size="14" '
-            f'font-weight="700" fill="{t["value"]}">{pct:.1f}%</text>\n'
-        )
-        y += 30
-    parts.append("</svg>\n")
-    return "".join(parts)
+    w, h = 900, 250
+    pct = round(100 * private / total) if total else 0
+    chart_x, chart_y, chart_w, chart_h = 440, 44, 424, 150
+    peak = max(v for _, v in months) or 1
+    slot = chart_w / len(months)
+    bar_w = slot * 0.62
+    out = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-labelledby="t">',
+        f'  <title id="t">GitHub activity, last 12 months: {total:,} contributions, {pct}% in private repositories. Monthly totals: '
+        + ", ".join(f"{MONTHS[int(k[5:]) - 1]} {k[:4]} {v}" for k, v in months) + "</title>",
+        f'  <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="14" fill="{t["bg"]}" stroke="{t["border"]}"/>',
+        f'  <text x="36" y="56" font-family="{FONT}" font-size="15" font-weight="600" fill="{t["dim"]}">ACTIVITY · LAST 12 MONTHS</text>',
+        f'  <text x="36" y="112" font-family="{FONT}" font-size="52" font-weight="700" fill="{t["fg"]}">{total:,}</text>',
+        f'  <text x="36" y="140" font-family="{FONT}" font-size="17" fill="{t["fg"]}">contributions on GitHub</text>',
+        f'  <text x="36" y="180" font-family="{FONT}" font-size="17" fill="{t["fg"]}"><tspan font-weight="700" fill="{t["acc"]}">{pct}%</tspan> in private repositories</text>',
+        f'  <text x="36" y="204" font-family="{FONT}" font-size="14" fill="{t["dim"]}">client work under NDA — counted, never shown</text>',
+        f'  <text x="36" y="232" font-family="{FONT}" font-size="12" fill="{t["dim"]}">Updated {today} by GitHub Actions in this repository</text>',
+    ]
+    for i in range(4):
+        gy = chart_y + chart_h * i / 3
+        out.append(f'  <line x1="{chart_x}" y1="{gy:.1f}" x2="{chart_x + chart_w}" y2="{gy:.1f}" stroke="{t["grid"]}"/>')
+    for i, (key, value) in enumerate(months):
+        bh = max(2, chart_h * value / peak)
+        x = chart_x + i * slot + (slot - bar_w) / 2
+        y = chart_y + chart_h - bh
+        color = t["bar"] if value >= peak * 0.25 else t["bar_dim"]
+        label = MONTHS[int(key[5:]) - 1]
+        out.append(f'  <rect x="{x:.1f}" y="{y:.1f}" width="{bar_w:.1f}" height="{bh:.1f}" rx="3" fill="{color}"><title>{label} {key[:4]}: {value}</title></rect>')
+        out.append(f'  <text x="{x + bar_w / 2:.1f}" y="{chart_y + chart_h + 20}" text-anchor="middle" font-family="{FONT}" font-size="12" fill="{t["dim"]}">{label}</text>')
+    out.append(f'  <text x="{chart_x + chart_w}" y="{chart_y - 12}" text-anchor="end" font-family="{FONT}" font-size="12" fill="{t["dim"]}">peak month: {peak:,}</text>')
+    out.append("</svg>\n")
+    return "\n".join(out)
 
 
 def main():
-    token = os.environ.get("GITHUB_TOKEN") or None
-    data = fetch_data(token)
-
+    token = os.environ.get("GITHUB_TOKEN")
+    if not token:
+        print("GITHUB_TOKEN is required", file=sys.stderr)
+        return 1
+    try:
+        total, private, days = fetch(token)
+        months = monthly(days)
+        today = dt.date.today().isoformat()
+        svgs = {f"activity-{theme}.svg": card(theme, total, private, months, today) for theme in THEMES}
+    except Exception as exc:  # keep the previous SVGs online
+        print(f"ERROR, nothing written: {exc}", file=sys.stderr)
+        return 1
     OUT_DIR.mkdir(exist_ok=True)
-    # altura única para os dois cards ficarem alinhados lado a lado
-    n_rows = max(len(stats_rows(data)), len(data["langs"][:5]))
-    height = 62 + 30 * n_rows + 14
-    for theme in THEMES:
-        (OUT_DIR / f"stats-{theme}.svg").write_text(build_stats_card(theme, data, height), encoding="utf-8")
-        (OUT_DIR / f"langs-{theme}.svg").write_text(build_langs_card(theme, data, height), encoding="utf-8")
-
-    print(f"OK: 4 SVGs gerados em {OUT_DIR}")
-    print(json.dumps({k: v for k, v in data.items() if k != "langs"}, ensure_ascii=False))
-    print("langs:", [(lang, size) for lang, size in data["langs"][:5]])
+    for name, svg in svgs.items():
+        tmp = OUT_DIR / (name + ".tmp")
+        tmp.write_text(svg, encoding="utf-8")
+        os.replace(tmp, OUT_DIR / name)
+    print(f"OK: total={total} private={private} months={months}")
+    return 0
 
 
 if __name__ == "__main__":

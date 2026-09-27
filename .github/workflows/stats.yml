@@ -1,12 +1,10 @@
-name: Generate Profile Stats
+name: Profile activity card
 
 on:
-  # roda todo dia às 03:00 (UTC), 3h depois da snake (00:00), com o grafo do dia já fechado
   schedule:
-    - cron: "0 3 * * *"
-  # permite rodar manualmente
+    # off-the-hour minute: scheduled runs at the top of the hour are delayed by hours
+    - cron: "37 9 * * *"
   workflow_dispatch:
-  # regenera quando o gerador ou este workflow mudarem
   push:
     branches: [main]
     paths:
@@ -16,7 +14,6 @@ on:
 permissions:
   contents: write
 
-# evita dois runs simultâneos disputando o git push
 concurrency:
   group: profile-stats
   cancel-in-progress: false
@@ -24,30 +21,40 @@ concurrency:
 jobs:
   stats:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 10
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Generate stats SVGs
+      # writes assets/activity-*.svg only if every API call succeeded;
+      # on failure it exits non-zero and the previous card stays online
+      - name: Generate activity card
         run: python scripts/generate_stats.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit updated stats
+      - name: Validate SVGs
+        run: |
+          python - <<'PY'
+          import pathlib, xml.dom.minidom
+          for p in pathlib.Path("assets").glob("activity-*.svg"):
+              xml.dom.minidom.parse(str(p))          # well-formed
+              assert p.stat().st_size < 20_000, p   # sane size
+          print("SVGs OK")
+          PY
+
+      - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets
+          git add assets/activity-*.svg
           if git diff --cached --quiet; then
-            echo "Cards já estão atualizados — nada a commitar"
+            echo "Card already up to date"
           else
-            git commit -m "chore: atualiza cards de estatísticas"
+            git commit -m "chore: update activity card"
             git pull --rebase origin main
             git push
           fi

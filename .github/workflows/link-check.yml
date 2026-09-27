@@ -1,27 +1,40 @@
-name: Check README Links
+name: README health
 
 on:
-  # toda segunda-feira às 06:00 (UTC) — avisa ANTES de um recrutador ver link quebrado
+  # every Monday — warns before a recruiter finds a broken link
   schedule:
-    - cron: "0 6 * * 1"
+    - cron: "23 6 * * 1"
   workflow_dispatch:
   push:
     branches: [main]
     paths:
       - README.md
+      - assets/**
+
+permissions:
+  contents: read
 
 jobs:
-  linkcheck:
+  check:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 10
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Check links and images
+      - name: Every image must be hosted in this repository
+        run: |
+          if grep -nE '(src|srcset)="https?://' README.md; then
+            echo "::error::external image found in README.md"; exit 1
+          fi
+          for f in $(grep -oE '(src|srcset)="assets/[^"]+"' README.md | sed -E 's/.*="([^"]+)"/\1/' | sort -u); do
+            test -f "$f" || { echo "::error::missing asset $f"; exit 1; }
+          done
+          echo "all images are local and present"
+
+      - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
-          # LinkedIn bloqueia robôs (HTTP 999) — excluído para evitar falso positivo
+          # LinkedIn blocks bots (HTTP 999), so it is excluded to avoid false alarms
           args: >-
             --no-progress
             --max-retries 3
