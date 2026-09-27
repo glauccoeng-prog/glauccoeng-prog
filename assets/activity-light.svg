@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="250" viewBox="0 0 900 250" role="img" aria-labelledby="t">
-  <title id="t">GitHub activity, last 12 months: 3,943 contributions, 96% in private repositories. Monthly totals: Oct 2025 0, Nov 2025 28, Dec 2025 84, Jan 2026 230, Feb 2026 200, Mar 2026 207, Apr 2026 193, May 2026 1496, Jun 2026 1229, Jul 2026 24, Aug 2026 91, Sep 2026 161</title>
+  <title id="t">GitHub activity, last 12 months: 3,951 contributions, 96% in private repositories. Monthly totals: Oct 2025 0, Nov 2025 28, Dec 2025 84, Jan 2026 230, Feb 2026 200, Mar 2026 207, Apr 2026 193, May 2026 1496, Jun 2026 1229, Jul 2026 24, Aug 2026 91, Sep 2026 169</title>
   <rect x="0.5" y="0.5" width="899" height="249" rx="14" fill="#ffffff" stroke="#d0d7de"/>
   <text x="36" y="56" font-family="-apple-system, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#59636e">ACTIVITY · LAST 12 MONTHS</text>
-  <text x="36" y="112" font-family="-apple-system, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="52" font-weight="700" fill="#1f2328">3,943</text>
+  <text x="36" y="112" font-family="-apple-system, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="52" font-weight="700" fill="#1f2328">3,951</text>
   <text x="36" y="140" font-family="-apple-system, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="17" fill="#1f2328">contributions on GitHub</text>
   <text x="36" y="180" font-family="-apple-system, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="17" fill="#1f2328"><tspan font-weight="700" fill="#0969da">96%</tspan> in private repositories</text>
   <text x="36" y="204" font-family="-apple-system, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="14" fill="#59636e">client work under NDA — counted, never shown</text>
@@ -33,7 +33,7 @@
   <text x="775.7" y="214" text-anchor="middle" font-family="-apple-system, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" fill="#59636e">Jul</text>
   <rect x="800.0" y="184.9" width="21.9" height="9.1" rx="3" fill="#aceebb"><title>Aug 2026: 91</title></rect>
   <text x="811.0" y="214" text-anchor="middle" font-family="-apple-system, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" fill="#59636e">Aug</text>
-  <rect x="835.4" y="177.9" width="21.9" height="16.1" rx="3" fill="#aceebb"><title>Sep 2026: 161</title></rect>
+  <rect x="835.4" y="177.1" width="21.9" height="16.9" rx="3" fill="#aceebb"><title>Sep 2026: 169</title></rect>
   <text x="846.3" y="214" text-anchor="middle" font-family="-apple-system, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" fill="#59636e">Sep</text>
   <text x="864" y="32" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" fill="#59636e">peak month: 1,496</text>
 </svg>
