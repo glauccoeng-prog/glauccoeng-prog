@@ -3,9 +3,9 @@
   <img src="assets/header-light.svg" width="100%" alt="Glaucco Siqueira — Software Engineer · AI coding-agent evaluation · Full stack. Brasília, Brazil.">
 </picture>
 
-🇧🇷 *Engenheiro de software em Brasília · [versão em português no fim da página](#pt)*
+🇧🇷 *Engenheiro de software · [versão em português no fim da página](#pt)*
 
-I build the tests that tell whether an AI coding agent can really program. For US AI labs, I write benchmark tasks: a real programming problem inside a Docker container, a reference solution, and an automated verifier that grades the agent and is hard to game. Before that, and still today, I ship full-stack web apps with TypeScript, React, Angular, Node.js and Python.
+I write the tests that show whether an AI coding agent can actually program. The clients are US AI labs. Each task is a real programming problem in a Docker container, plus my reference solution and a verifier that grades the agent. The verifier takes most of my time. It has to be strict, and it has to be fair. I started out building full-stack web apps with TypeScript, React, Angular, Node.js and Python, and I still take that kind of work.
 
 <p>
   <a href="https://www.linkedin.com/in/glaucco-siqueira/"><img src="assets/btn-linkedin.svg" height="40" alt="LinkedIn: glaucco-siqueira"></a>
@@ -20,14 +20,14 @@ flowchart LR
   B --> C["Reference solution"]
   C --> D{"Verifier<br/>fail-to-pass + pass-to-pass"}
   D -->|"reference agent"| E["reward 1.0 ✅"]
-  D -->|"empty agent / shortcut"| F["reward 0.0 ❌"]
+  D -->|"empty or incomplete solution"| F["reward 0.0 ❌"]
   D --> G["Model runs read step by step<br/>→ difficulty calibrated"]
 ```
 
-A task is only valid when the reference solution passes **and** an agent that does nothing, or cheats, fails.
+My rule for a task: the reference solution passes, and an empty or incomplete solution fails. If either half doesn't hold, the task isn't done.
 
-- **AfterQuery** (Y Combinator-backed AI data lab): tasks in Go, Python and C/C++, including SWE-bench-style bug fixes, fuzzing-driven memory-safety tasks and browser-tested web repairs. More than 25 approved so far.
-- **A US AI data company** (name confidential by contract): evaluation tasks in the open [Terminal-Bench / Harbor](https://github.com/harbor-framework/harbor) format, with verifiers hardened against reward hacking.
+- At AfterQuery, a Y Combinator-backed AI data lab, I've had more than 25 tasks approved. I write them in Go, Python and C/C++, and they go from SWE-bench-style bug fixes to memory-safety work with fuzzing and web-app repairs I check in a real browser.
+- I also work for US AI data companies whose names I can't share, on tasks in the open [Terminal-Bench / Harbor](https://github.com/harbor-framework/harbor) format. A few of mine are in Brazilian Portuguese, which is my first language. The agent gets files in Portuguese, with Brazilian numbers, dates and documents, and has to handle them correctly.
 
 ## Featured work
 
@@ -64,7 +64,7 @@ Most of my recent work lives in private client repositories, so the chart counts
 | Role | Where | When |
 |---|---|---|
 | AI Benchmark Engineer (contract) | AfterQuery | Apr 2026 – present |
-| AI Benchmark Engineer (contract) | US AI data company (confidential) | Sep 2026 – present |
+| AI Benchmark Engineer (contract) | US AI data companies (confidential) | Sep 2026 – present |
 | Full Stack Development Intern | CI&T (NYSE: CINT) | Jan 2025 – Jul 2025 |
 | Automation Developer (freelance) | Mengoni Engenharia & Arquitetura | Jan 2024 – Aug 2024 |
 | Full Stack Developer (freelance) | Own and client projects | Oct 2022 – Dec 2024 |
@@ -82,10 +82,10 @@ Most of my recent work lives in private client repositories, so the chart counts
 
 <br>
 
-Sou engenheiro de software em Brasília. Hoje crio as tarefas que medem se um agente de IA sabe mesmo programar. Para laboratórios de IA dos Estados Unidos, escrevo tarefas de benchmark: um problema real de programação dentro de um contêiner Docker, uma solução de referência e um verificador automático que dá a nota e é difícil de enganar.
+Sou engenheiro de software. Hoje escrevo os testes que mostram se um agente de IA de programação sabe mesmo programar, principalmente para laboratórios de IA dos Estados Unidos. Cada tarefa é um problema real de programação num contêiner Docker, com a minha solução de referência e um verificador que dá a nota ao agente. É no verificador que vai a maior parte do meu tempo: ele precisa ser rigoroso e justo.
 
-- Na **AfterQuery**, crio tarefas em Go, Python e C/C++. Mais de 25 foram aprovadas até agora.
-- Para uma **empresa de IA dos EUA** (nome em sigilo por contrato), crio avaliações no formato aberto Terminal-Bench/Harbor.
+- Na **AfterQuery**, laboratório de dados de IA apoiado pela Y Combinator, tenho mais de 25 tarefas aprovadas, em Go, Python e C/C++.
+- Também trabalho para **empresas de dados de IA dos EUA** (nomes em sigilo por contrato), com tarefas no formato aberto Terminal-Bench/Harbor. Algumas são em português do Brasil, minha língua nativa: o agente recebe arquivos em português, com números, datas e documentos no padrão brasileiro.
 - Tenho base full stack em TypeScript, React, Angular, Node.js, Python/Django e PostgreSQL, com testes automatizados e CI/CD.
 - Sou bacharel em Engenharia de Software e pós-graduado em Full Stack Development.
 - Estou aberto a vagas CLT no Brasil e a trabalho remoto para empresas dos EUA.
